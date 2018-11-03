@@ -10,17 +10,18 @@ const Button = styled.button`
 `;
 export default class StyledButton extends React.PureComponent {
   render() {
-    const { text, onClick, type } = this.props;
+    const { onClick, type } = this.props;
     return (
       <Button onClick={onClick} type={type}>
-        {text}
+        {this.props.children}
       </Button>
     );
   }
 }
 
 StyledButton.propTypes = {
-  text: PropTypes.string,
+  // text: PropTypes.string,
   onClick: PropTypes.func,
   type: PropTypes.string,
+  children: PropTypes.node,
 };

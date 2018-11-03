@@ -7,12 +7,12 @@ export default class Header extends React.PureComponent {
   render() {
     return (
       <div className="header-wrapper">
-        <div>All You Can String!</div>
-        <StyledButton
-          type="primary"
-          text="Add A String"
-          onClick={this.props.onClick}
-        />
+        <div className="header-title">All You Can String!</div>
+        <div className="header-button">
+          <StyledButton type="primary" onClick={this.props.onClick}>
+            Add A String
+          </StyledButton>
+        </div>
       </div>
     );
   }

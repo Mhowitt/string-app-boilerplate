@@ -1,7 +1,19 @@
 .header-wrapper {
   width: 100vw;
-  height: 20%;
-  background: purple;
-  color: aliceblue;
+  height: 4em;
+  display: flex;
+  flex-direction: row;
+  background: #907d6f;
+  color: #f2e2cf;
   text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  margin-left: 1%;
+}
+
+.header-button {
+  margin-right: 1%;
 }

@@ -12,17 +12,19 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
-import Header from '../../components/Header';
+
+import CreateString from '../CreateString';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   render() {
     return (
       <div>
-        <Header />
         <h1>
           <FormattedMessage {...messages.header} />
         </h1>
+        <div>Get started by submitting a String! </div>
+        <CreateString />
       </div>
     );
   }

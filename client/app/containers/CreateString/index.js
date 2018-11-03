@@ -1,12 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { CREATE_STRING } from './constants';
+import FormControl from '../../components/FormControl';
 
-export default class CreateString extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
+class CreateString extends React.PureComponent {
   render() {
-    return <h1>create a string</h1>;
+    return (
+      <div>
+        <div>Give us a string</div>
+        <div>
+          <FormControl createString={this.props.createString} />
+        </div>
+      </div>
+    );
   }
 }
+
+const mapStateToProps = state => ({
+  isCreateModalOpen: state.isCreateModalOpen,
+});
+
+const mapDispatchToProps = {
+  createString: string => ({
+    type: CREATE_STRING,
+    payload: string,
+  }),
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CreateString);
+
+CreateString.propTypes = {
+  createString: PropTypes.func,
+};

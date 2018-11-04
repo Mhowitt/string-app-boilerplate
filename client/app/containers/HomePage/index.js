@@ -19,11 +19,13 @@ import CreateString from '../CreateString';
 export default class HomePage extends React.PureComponent {
   render() {
     return (
-      <div>
+      <div style={{ width: '100vw' }}>
         <h1>
           <FormattedMessage {...messages.header} />
         </h1>
-        <div>Get started by submitting a String! </div>
+        <div style={{ margin: '0 auto' }}>
+          Get started by submitting a String!{' '}
+        </div>
         <CreateString />
       </div>
     );

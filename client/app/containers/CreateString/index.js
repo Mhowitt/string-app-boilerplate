@@ -8,7 +8,6 @@ class CreateString extends React.PureComponent {
   render() {
     return (
       <div>
-        <div>Give us a string</div>
         <div>
           <FormControl createString={this.props.createString} />
         </div>

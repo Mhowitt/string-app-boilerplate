@@ -1,16 +1,16 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 const stringRoutes = require('./routes');
 const morgan = require('morgan');
-const cors = require('CORS');
-const PORT = 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(morgan('tiny'));
+
 app.use('/strings', stringRoutes);
 
 app.use((req, res, next) => {

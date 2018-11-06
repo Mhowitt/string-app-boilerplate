@@ -1,24 +1,19 @@
 import axios from 'axios';
 import { put, takeLatest, all } from 'redux-saga/effects';
-import {
-  LOAD_STRINGS_SUCCESS,
-  LOAD_STRINGS_FAIL,
-  LOAD_STRINGS,
-} from './constants';
 
 function* getAllStrings() {
   try {
     const stringData = yield axios
-      .get('http://localhost:50000/strings')
+      .get('http://localhost:5000/strings')
       .then(data => data.data);
-    yield put({ type: LOAD_STRINGS_SUCCESS, payload: stringData });
+    yield put({ type: 'LOAD_STRINGS_SUCCESS', payload: stringData });
   } catch (err) {
-    yield put({ type: LOAD_STRINGS_FAIL, error: err });
+    yield put({ type: 'LOAD_STRINGS_FAIL', error: err });
   }
 }
 
 function* actionWatcher() {
-  yield takeLatest(LOAD_STRINGS, getAllStrings);
+  yield takeLatest('LOAD_STRINGS', getAllStrings);
 }
 
 export default function* stringContainerSaga() {

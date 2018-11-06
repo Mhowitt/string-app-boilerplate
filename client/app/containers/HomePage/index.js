@@ -14,12 +14,13 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 import CreateString from '../CreateString';
+import './HomePage.css';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   render() {
     return (
-      <div style={{ width: '100vw' }}>
+      <div className="homepage-container">
         <h1>
           <FormattedMessage {...messages.header} />
         </h1>

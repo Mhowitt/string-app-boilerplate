@@ -5,7 +5,7 @@ import './FormControl.css';
 
 export default class FormControl extends React.Component {
   static propTypes = {
-    onSubmit: PropTypes.func,
+    createString: PropTypes.func,
   };
 
   state = {
@@ -18,18 +18,21 @@ export default class FormControl extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit();
+    if (this.state.string.length < 1) {
+      console.log('error');
+    } else {
+      debugger;
+
+      this.props.createString(this.state.string);
+    }
   };
 
   render() {
     return (
       <div className="input-container">
-        <label htmlFor="string">String</label>
         <input
           style={{
-            background: 'white',
-            width: '200px',
-            height: '20px',
+            background: 'transparent',
             marginLeft: '1%',
             marginRight: '1%',
           }}

@@ -6,7 +6,9 @@ const Button = styled.button`
   background: ${props => (props.type === 'primary' ? 'tomato' : 'white')};
   color: ${props => (props.type === 'primary' ? 'white' : 'tomato')};
   border: 1px solid ${props => (props.type === 'primary' ? null : 'tomato')};
-  padding: 5px 10px;
+  padding: 5px;
+  width: 110px;
+  border-radius: 5px;
 `;
 export default class StyledButton extends React.PureComponent {
   render() {

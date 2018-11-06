@@ -22,6 +22,7 @@ router
         'INSERT INTO strings (string) VALUES ($1) RETURNING *',
         [req.body.string]
       );
+
       //returning all
       return res.json(newStrings.rows[0]);
     } catch (err) {

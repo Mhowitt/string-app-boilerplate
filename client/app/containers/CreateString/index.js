@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { CREATE_STRING } from './constants';
+import { CREATE_STRING } from './reducer';
 import FormControl from '../../components/FormControl';
 
 class CreateString extends React.PureComponent {

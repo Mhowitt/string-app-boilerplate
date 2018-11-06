@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import StringContainer from 'containers/StringContainer/Loadable';
@@ -19,17 +19,17 @@ import GlobalStyle from '../../global-styles';
 import './App.css';
 import Header from '../../components/Header';
 
-export default function App() {
-  return (
-    <div className="main-container">
-      <Header />
-      <Switch>
-        <Route path="/strings" component={StringContainer} />
-        <Route path="/new" component={CreateString} />
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      <GlobalStyle />
-    </div>
-  );
-}
+const App = props => (
+  <div className="main-container">
+    <Header location={props.location} />
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/strings" component={StringContainer} />
+      <Route path="/new" component={CreateString} />
+
+      <Route component={NotFoundPage} />
+    </Switch>
+    <GlobalStyle />
+  </div>
+);
+export default withRouter(App);

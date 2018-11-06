@@ -1,8 +1,6 @@
-import {
-  CREATE_STRING,
-  CREATE_STRING_SUCCESS,
-  CREATE_STRING_FAIL,
-} from './constants';
+export const CREATE_STRING = 'CREATE_STRING';
+export const CREATE_STRING_SUCCESS = 'CREATE_STRING_SUCCESS';
+export const CREATE_STRING_FAIL = 'CREATE_STRING_FAIL';
 
 const initialState = {
   loading: false,

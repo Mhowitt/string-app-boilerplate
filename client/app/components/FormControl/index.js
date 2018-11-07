@@ -6,6 +6,8 @@ import './FormControl.css';
 export default class FormControl extends React.Component {
   static propTypes = {
     createString: PropTypes.func,
+    openCloseModal: PropTypes.func,
+    isModalOpen: PropTypes.bool,
   };
 
   state = {
@@ -21,8 +23,9 @@ export default class FormControl extends React.Component {
     if (this.state.string.length < 1) {
       console.log('error');
     } else {
-      debugger;
-
+      if (this.props.isModalOpen) {
+        this.props.openCloseModal();
+      }
       this.props.createString(this.state.string);
     }
   };

@@ -10,7 +10,6 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 import CreateString from '../CreateString';
@@ -21,13 +20,7 @@ export default class HomePage extends React.PureComponent {
   render() {
     return (
       <div className="homepage-container">
-        <h1>
-          <FormattedMessage {...messages.header} />
-        </h1>
-        <div style={{ margin: '0 auto' }}>
-          Get started by submitting a String!{' '}
-        </div>
-        <CreateString />
+        <CreateString headerText={messages.header} titleText={messages.title} />
       </div>
     );
   }

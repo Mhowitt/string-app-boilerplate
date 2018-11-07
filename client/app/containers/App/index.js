@@ -14,22 +14,51 @@ import HomePage from 'containers/HomePage/Loadable';
 import StringContainer from 'containers/StringContainer/Loadable';
 import CreateString from 'containers/CreateString/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import Header from '../../components/Header/Loadable';
 
 import GlobalStyle from '../../global-styles';
 import './App.css';
-import Header from '../../components/Header';
 
-const App = props => (
-  <div className="main-container">
-    <Header location={props.location} />
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/strings" component={StringContainer} />
-      <Route path="/new" component={CreateString} />
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isModalOpen: false,
+    };
+  }
 
-      <Route component={NotFoundPage} />
-    </Switch>
-    <GlobalStyle />
-  </div>
-);
+  openCloseModal = () => {
+    if (this.state.isModalOpen) {
+      this.setState({ isModalOpen: false });
+      this.props.history.push('/strings');
+    } else {
+      this.setState({ isModalOpen: true });
+    }
+  };
+
+  render() {
+    const { location } = this.props;
+    return (
+      <div className="main-container">
+        <Header location={location} onClick={this.openCloseModal} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route
+            path="/strings"
+            render={props => (
+              <StringContainer
+                openCloseModal={this.openCloseModal}
+                isModalOpen={this.state.isModalOpen}
+                {...props}
+              />
+            )}
+          />
+          <Route path="/new" component={CreateString} />
+          <Route component={NotFoundPage} />
+        </Switch>
+        <GlobalStyle />
+      </div>
+    );
+  }
+}
 export default withRouter(App);

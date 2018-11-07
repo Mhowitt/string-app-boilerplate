@@ -12,4 +12,8 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'Welcome to All You Can String!',
   },
+  title: {
+    id: `${scope}.title`,
+    defaultMessage: 'Get started by submitting a String!',
+  },
 });

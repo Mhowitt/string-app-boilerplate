@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background: ${props => (props.type === 'primary' ? 'tomato' : 'white')};
-  color: ${props => (props.type === 'primary' ? 'white' : 'tomato')};
-  border: 1px solid ${props => (props.type === 'primary' ? null : 'tomato')};
-  padding: 5px;
-  width: 110px;
+  background: ${props => (props.type === 'primary' ? '#ff4625' : 'white')};
+  color: ${props => (props.type === 'primary' ? 'white' : '#ff4625')};
+  border: ${props => (props.type === 'primary' ? 'none' : '1px solid #ff4625')};
+  padding: 10px;
+  width: 120px;
   border-radius: 5px;
 `;
 export default class StyledButton extends React.PureComponent {

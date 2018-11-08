@@ -14,6 +14,12 @@
   margin-left: 1%;
 }
 
+.header-title > a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #f2e2cf;
+}
+
 .header-button {
   margin-right: 1%;
 }

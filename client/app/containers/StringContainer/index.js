@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { LOAD_STRINGS } from './reducer';
+import { LOAD_STRINGS } from './constants';
 import { selectStrings } from './selectors';
 import messages from './messages';
+
 import StringListItem from '../../components/StringListItem';
 import Modal from '../../components/Modal';
 import CreateString from '../CreateString';
+import './StringContainer.css';
 
 class StringContainer extends React.Component {
   static propTypes = {
@@ -20,13 +22,6 @@ class StringContainer extends React.Component {
     this.props.getStrings();
   };
 
-  // shouldComponentUpdate = nextProps => {
-  //   if (this.props.isModalOpen !== nextProps.isModalOpen) {
-  //     return true;
-  //   }
-  //   return false;
-  // };
-
   renderStringItems = strings =>
     strings.map((string, idx) => (
       <StringListItem key={idx} string={string.string} />
@@ -35,7 +30,7 @@ class StringContainer extends React.Component {
   render() {
     const { stringData } = this.props;
     return (
-      <div>
+      <div className="string-list-container">
         <h1>Strings</h1>
         {stringData && stringData.strings.length > 0 ? (
           this.renderStringItems(stringData.strings)
@@ -49,6 +44,7 @@ class StringContainer extends React.Component {
         >
           <CreateString
             isModalOpen={this.props.isModalOpen}
+            modal
             openCloseModal={this.props.openCloseModal}
             headerText={messages.header}
             titleText={messages.title}

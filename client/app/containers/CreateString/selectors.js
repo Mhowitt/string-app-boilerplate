@@ -1,3 +1,6 @@
+// import { createSelector } from 'reselect';
+// import { initialState } from './reducer';
+
 export function currentLocation(currentState) {
   const store = currentState._root.entries;
   const router = store.filter(reducer => reducer[0] === 'router');
@@ -8,3 +11,12 @@ export function currentLocation(currentState) {
 
   return path[0][1];
 }
+
+// export const getCreateStringState = state =>
+//   state.get('createString', initialState);
+
+// export const formStrValue = () =>
+//   createSelector([getCreateStringState], createStringState => {
+//     const value = createStringState.get('stringValue');
+//     return value;
+//   });

@@ -1,0 +1,7 @@
+.string-list-container {
+  background: rgb(173, 173, 173, 0.7);
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 50%;
+}

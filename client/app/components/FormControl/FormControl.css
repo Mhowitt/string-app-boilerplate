@@ -6,6 +6,9 @@
 }
 
 .input-container > input {
+  background: transparent;
+  margin-left: 1%;
+  margin-right: 1%;
   border-top: none;
   border-right: none;
   border-left: none;

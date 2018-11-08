@@ -1,13 +1,17 @@
-export const LOAD_STRINGS = 'LOAD_STRINGS';
-export const LOAD_STRINGS_SUCCESS = 'LOAD_STRINGS_SUCCESS';
-export const LOAD_STRINGS_FAIL = 'LOAD_STRINGS_FAIL';
-export const UPDATE_STRINGS = 'UPDATE_STRINGS';
+import {
+  LOAD_STRINGS,
+  LOAD_STRINGS_SUCCESS,
+  LOAD_STRINGS_FAIL,
+  UPDATE_STRINGS,
+} from './constants';
 
 export const initialState = {
   strings: [],
   loading: false,
   error: false,
 };
+
+/* TODO ADD MORE ERROR HANDLING */
 
 export default function stringLoaderReducer(state = initialState, action = {}) {
   switch (action.type) {

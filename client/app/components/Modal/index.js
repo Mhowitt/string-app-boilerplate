@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import StyledButton from '../StyledButton';
 
 const ModalBackdrop = styled.div`
   position: 'fixed';
@@ -8,8 +9,7 @@ const ModalBackdrop = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100vh;
-  width: 100vw;
+
   background-color: 'rgba(0,0,0,0.8)';
   padding: 50;
 `;
@@ -35,25 +35,24 @@ const ModalHeader = styled.div`
   height: 40px;
 `;
 
-class Modal extends React.Component {
-  render() {
-    // Render nothing if the "show" prop is false
-    if (!this.props.show) {
-      return null;
-    }
-
-    return (
-      <ModalBackdrop>
-        <ModalContainer>
-          <ModalHeader>
-            <button onClick={this.props.onClose}>X</button>
-          </ModalHeader>
-          {this.props.children}
-        </ModalContainer>
-      </ModalBackdrop>
-    );
+const Modal = props => {
+  // Render nothing if the "show" prop is false
+  if (!props.show) {
+    return null;
   }
-}
+  return (
+    <ModalBackdrop>
+      <ModalContainer>
+        <ModalHeader>
+          <StyledButton type="close" onClick={props.onClose}>
+            X
+          </StyledButton>
+        </ModalHeader>
+        {props.children}
+      </ModalContainer>
+    </ModalBackdrop>
+  );
+};
 
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,

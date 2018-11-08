@@ -1,10 +1,14 @@
-export const CREATE_STRING = 'CREATE_STRING';
-export const CREATE_STRING_SUCCESS = 'CREATE_STRING_SUCCESS';
-export const CREATE_STRING_FAIL = 'CREATE_STRING_FAIL';
+import {
+  CREATE_STRING,
+  CREATE_STRING_SUCCESS,
+  CREATE_STRING_FAIL,
+  FORM_VALUE_CHANGE,
+} from './constants';
 
-const initialState = {
+export const initialState = {
   loading: false,
   error: false,
+  stringValue: '',
 };
 
 export default function stringCreatorReducer(
@@ -18,6 +22,8 @@ export default function stringCreatorReducer(
       return { ...state, loading: false };
     case CREATE_STRING_FAIL:
       return { ...state, loading: false, error: true };
+    case FORM_VALUE_CHANGE:
+      return { ...state, stringValue: action.payload };
     default:
       return state;
   }

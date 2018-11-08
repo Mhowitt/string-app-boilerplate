@@ -8,6 +8,8 @@ export default class FormControl extends React.Component {
     createString: PropTypes.func,
     openCloseModal: PropTypes.func,
     isModalOpen: PropTypes.bool,
+    changeValue: PropTypes.func,
+    formValue: PropTypes.func,
   };
 
   state = {
@@ -20,13 +22,16 @@ export default class FormControl extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.state.string.length < 1) {
+    /* TODO: better handling of validation errors but for now this
+    makes sure that the user is entering valid characters
+    and not just spaces  */
+    if (!this.state.string || this.state.string.trim() === undefined) {
       console.log('error');
     } else {
       if (this.props.isModalOpen) {
         this.props.openCloseModal();
       }
-      this.props.createString(this.state.string);
+      this.props.createString(this.state.string.toString());
     }
   };
 
@@ -34,18 +39,16 @@ export default class FormControl extends React.Component {
     return (
       <div className="input-container">
         <input
-          style={{
-            background: 'transparent',
-            marginLeft: '1%',
-            marginRight: '1%',
-          }}
           type="text"
           className="string-input"
           value={this.state.string}
           name="string"
           onChange={this.handleChange}
         />
-        <StyledButton onClick={this.handleSubmit} type="primary">
+        <StyledButton
+          onClick={this.handleSubmit}
+          type={!this.props.isModalOpen ? 'primary' : null}
+        >
           Add It!
         </StyledButton>
       </div>

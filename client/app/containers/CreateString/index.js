@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
-import { createSelector } from 'reselect';
-
-// import { CREATE_STRING } from './constants';
+// import { createSelector } from 'reselect';
 // import { formStrValue } from './selectors';
 import * as actions from './actions';
 
@@ -23,6 +21,16 @@ const CardComponent = styled.div`
 `;
 
 class CreateString extends React.PureComponent {
+  static propTypes = {
+    createString: PropTypes.func,
+    // changeValue: PropTypes.func,
+    modal: PropTypes.bool,
+    headerText: PropTypes.object,
+    titleText: PropTypes.object,
+    // formValue: PropTypes.func,
+    openCloseModal: PropTypes.func,
+  };
+
   render() {
     return (
       <CardComponent {...this.props}>
@@ -66,13 +74,3 @@ export default connect(
   null,
   mapDispatchToProps,
 )(CreateString);
-
-CreateString.propTypes = {
-  createString: PropTypes.func,
-  changeValue: PropTypes.func,
-  modal: PropTypes.bool,
-  headerText: PropTypes.object,
-  titleText: PropTypes.object,
-  formValue: PropTypes.func,
-  openCloseModal: PropTypes.func,
-};

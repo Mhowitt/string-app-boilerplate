@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { LOAD_STRINGS } from './constants';
 import { selectStrings } from './selectors';
+import * as actions from './actions';
 import messages from './messages';
 
 import StringListItem from '../../components/StringListItem';
@@ -57,7 +57,7 @@ class StringContainer extends React.Component {
 
 const mapStateToProps = state => ({ stringData: selectStrings(state) });
 const mapDispatchToProps = {
-  getStrings: () => ({ type: LOAD_STRINGS }),
+  getStrings: () => actions.loadStrings(),
 };
 
 export default connect(

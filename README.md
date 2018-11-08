@@ -1,4 +1,4 @@
-# Project Title
+# String-App
 
 A take home full stack app challenge about the creating, showing, and storing strings using .
 
@@ -62,7 +62,6 @@ Make sure to navigate into the client folder (rather than the express server).
 ```sh
 $ cd string-app-boilerplate/client
 $ npm install
-$ npm run build:all
 ```
 
 To start the app please enter the following command
@@ -73,17 +72,19 @@ $ npm start
 
 ### Client-side routes
 
-| ------ |
-| http://localhost:3000 |
+|        BROWSER ROUTES         |
+| :---------------------------: |
+|     http://localhost:3000     |
 | http://localhost:3000/strings |
 
 ### API Endpoints
 
 My API was designed to follow RESTful routing protocols
 
-| HTTP VERB | LOCATION |
-| GET | http://localhost:5000/strings |
-| POST | http://localhost:5000/strings |
+| HTTP VERB |           LOCATION            |
+| :-------: | :---------------------------: |
+|    GET    | http://localhost:5000/strings |
+|   POST    | http://localhost:5000/strings |
 
 ## Notes and things I would improve upon if allotted more time
 

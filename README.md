@@ -92,6 +92,8 @@ My API was designed to follow RESTful routing protocols
   with the learning curve with Reselect and redux-saga, I decided to
   comment out this work and leave it as a todo.
 
+- I really wanted to implement a search component and use reselect to filter the list of strings, but I didn't get to this feature.
+
 - More validation and error handing on both the frontend and backend. Validation including you must enter a unique string.
 
 - More tests including some more complicated tests. I was fighting a bit with some of react-boilerplates tests not passing. I'm still looking into why and will continue to push changes up. I started testing my server as well, and will continue to push changes up.

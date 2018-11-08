@@ -55,7 +55,7 @@ async function afterEachHook() {
 
 async function afterAllHook() {
   try {
-    await db.query('DROP TABLE IF EXISTS strings');
+    await db.query('DROP TABLE strings');
     await db.end();
   } catch (err) {
     console.error(err);

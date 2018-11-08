@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
@@ -24,27 +24,25 @@ describe('<StringContainer />', () => {
   });
 
   it('should render its children', () => {
-    const children = <h1>Test</h1>;
-    const renderedComponent = mount(
+    const renderedComponent = shallow(
       <Provider store={store}>
         {' '}
-        <StringContainer>{children}</StringContainer>
-      </Provider>,
-    );
-    expect(renderedComponent.find('h1').children()).toBe(true);
-  });
-
-  it('should render at least one StringListItem', () => {
-    const strings = ['i heart strings', 'test', 'tester'];
-    const renderedComponent = mount(
-      <Provider store={store}>
-        <StringContainer>
-          {strings.map(string => (
-            <StringListItem string={string} />
-          ))}
+        <StringContainer className="test-continer">
+          <h1>Test</h1>
         </StringContainer>
       </Provider>,
     );
-    expect(renderedComponent.find(StringListItem).children()).toHaveLength(3);
+    expect(renderedComponent.find('.test-continer').length).toBe(1);
+  });
+
+  it('should render at least one StringListItem', () => {
+    const renderedComponent = mount(
+      <Provider store={store}>
+        <StringContainer className="test-string">
+          <StringListItem string="test" />
+        </StringContainer>
+      </Provider>,
+    );
+    expect(renderedComponent.find('.test-string').children().length).toBe(2);
   });
 });

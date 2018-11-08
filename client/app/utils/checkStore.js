@@ -10,7 +10,7 @@ export default function checkStore(store) {
     subscribe: isFunction,
     getState: isFunction,
     replaceReducer: isFunction,
-    runSaga: isFunction,
+    runSaga: isObject,
     injectedReducers: isObject,
     injectedSagas: isObject,
   };

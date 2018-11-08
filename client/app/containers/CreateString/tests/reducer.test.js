@@ -1,9 +1,10 @@
-import stringCreatorReducer, {
+import {
   CREATE_STRING,
   CREATE_STRING_SUCCESS,
-  // LOAD_STRINGS_FAIL,
+  // CREATE_STRING_FAIL,
   // UPDATE_STRINGS,
-} from '../reducer';
+} from '../constants';
+import stringCreatorReducer from '../reducer';
 
 describe('stringCreatorReducer', () => {
   it('returns the initial state', () => {
@@ -22,7 +23,6 @@ describe('stringCreatorReducer', () => {
     ).toEqual({
       loading: true,
       error: false,
-      string: 'test',
     });
   });
 

@@ -27,10 +27,16 @@ class CreateString extends React.PureComponent {
     return (
       <CardComponent {...this.props}>
         <h1>
-          <FormattedMessage {...this.props.headerText} />
+          <FormattedMessage
+            id={this.props.headerText.id}
+            {...this.props.headerText}
+          />
         </h1>
         <div style={{ margin: '0 auto' }}>
-          <FormattedMessage {...this.props.titleText} />
+          <FormattedMessage
+            id={this.props.titleText.id}
+            {...this.props.titleText}
+          />
         </div>
         <div>
           <div>

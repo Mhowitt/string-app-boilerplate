@@ -1,9 +1,10 @@
-import stringLoaderReducer, {
+import {
   LOAD_STRINGS,
   LOAD_STRINGS_SUCCESS,
   LOAD_STRINGS_FAIL,
   // UPDATE_STRINGS,
-} from '../reducer';
+} from '../constants';
+import stringLoaderReducer from '../reducer';
 
 describe('stringLoaderReducer', () => {
   it('returns the initial state', () => {
@@ -43,6 +44,7 @@ describe('stringLoaderReducer', () => {
     expect(
       stringLoaderReducer(undefined, {
         type: LOAD_STRINGS_FAIL,
+        payload: 'err',
       }),
     ).toEqual({
       strings: [],

@@ -53,7 +53,6 @@ class App extends React.Component {
               />
             )}
           />
-          <Route path="/new" component={CreateString} />
           <Route component={NotFoundPage} />
         </Switch>
         <GlobalStyle />
